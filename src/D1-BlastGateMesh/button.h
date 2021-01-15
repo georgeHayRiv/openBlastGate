@@ -1,6 +1,7 @@
 #include "OneButton.h"
+#define BUTTON_H "button.h"
 #define BUTTON_PIN D4
-OneButton button(BUTTON_PIN,LOW, true);// Setup a new OneButton instance
+OneButton button(BUTTON_PIN,HIGH, true);// Setup a new OneButton instance
 
 void singleClick(){// This function will be called once, when the button is clicked
   Serial.println(button clicked");

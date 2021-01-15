@@ -1,4 +1,5 @@
 // Include the AccelStepper library:
+#define GATE_H "accelStepA4988.h"
 #include <AccelStepper.h>
 // Define stepper motor connections and motor interface type. Motor interface type must be set to 1 when using a driver:
 unsigned int gOpenGatePosition = -8800;//2700;
@@ -35,6 +36,7 @@ void openBlastGate(){
       stepper.runToNewPosition(stepper.currentPosition() -400);
     }else{
  stepper.moveTo(gOpenGatePosition);//gOpenGatePosition - stepper.currentPosition());
+ gGateStatus = GATE_OPEN;
     }
  }
   void closeBlastGate(){  
@@ -49,6 +51,7 @@ void openBlastGate(){
       stepper.runToNewPosition(stepper.currentPosition() -400);
     }else{
   stepper.moveTo(gClosedGatePosition);//-stepper.currentPosition());//move from the current position to the zero position
+  gGateStatus = GATE_CLOSED;
     }
  }
 

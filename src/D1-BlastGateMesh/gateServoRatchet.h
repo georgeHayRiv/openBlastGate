@@ -1,5 +1,5 @@
 // TODO do we need to close the gate at startup or do some sort of check to determine where the servo is?
-
+#define GATE_H "gateServoRatchet.h"
 // This code is designed to turn a disc that looks much like a 10" saw blade with 16 teeth. It takes four swings back and forth of the servo to move from the open to closed position.
 //This allows a weaker servo to open of close a gate but does lose the ability to know if the gate is open or closed based only on the position of the servo.
 
@@ -45,10 +45,12 @@ void turn90Degrees(){
 void openBlastGate(){
   turn90Degrees();
   Serial.println("openBlastGate");
+  gGateStatus = GATE_OPEN;
 }
   void closeBlastGate(){
     turn90Degrees();
    Serial.println("closeBlastGate");
+   gGateStatus = GATE_CLOSED;
 }
 
 void gateSetup(){

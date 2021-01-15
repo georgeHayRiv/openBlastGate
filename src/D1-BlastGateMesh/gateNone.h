@@ -1,6 +1,7 @@
 // This might be used in a very simple setup where there is a shop vac and a chop saw and no other devices and no blast gate.
 // Using this with a current sensor on the chap saw could signal a seperate dust collector module to turn the shop vac on.
 //
+#define GATE_H "gateNone.h"
 // Nothing happens below and these are just placeholders
 
 // ---------------- include the following functions to be called in the main code ---------------------

@@ -12,6 +12,8 @@ If stepper runs, "gGateStatus " is toggled
 Redone to work with Wemos D1 mini and added to the Blast Gate code
 11/6/2020 GHA
 */
+#define GATE_H "gateStepperA4988.h"
+
 #define ENABLE_PIN D1      //pin to turn off the stepper board on and off
 #define DIRECTION_PIN D2   //Wemos pin connected to direction pin on stepper board
 #define STEP_PIN  D3       //Wemos pin connected Step signal pin on stepper board
@@ -46,7 +48,7 @@ void AStepperSteps(unsigned int stepsToMove, StepDirection direction)
 void openBlastGate(){
   //  if(digitalRead(openedLimitPin) ){ //check limit switch to see if the gate is already open. If not open it.
    AStepperSteps(gStepsToOpenGate, CCW);
-  gGateStatus  = !gGateStatus ; 
+  gGateStatus  = GATE_OPEN; 
   //}else{ //gate already open
 //  }
  }
@@ -54,7 +56,7 @@ void openBlastGate(){
 //  if(digitalRead(closedLimitPin) ){//check limit switch to see if the gate is already closed. If not close it.
 //    //add code to close the gate
    AStepperSteps(gStepsToOpenGate, CW);
-   gGateStatus  = !gGateStatus ;
+   gGateStatus  = GATE_CLOSED;
   //  }else{// gate already open
 //  }
 }

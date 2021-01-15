@@ -5,7 +5,7 @@
 // add any global variables
 // do any initialization
 // define any local functions used by this file
-
+#define GATE_H "gateTemplate.h"
 // ---------------- include the following functions to be called in the main code ---------------------
 void openBlastGate(){
   //This gets called in the code when a button is pressed or a woodworking machine is turned on.

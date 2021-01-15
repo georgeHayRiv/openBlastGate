@@ -6,7 +6,7 @@
 // as was used in this video
 // https://www.youtube.com/watch?v=Sdo4Y9uW8y4
 
-
+#define GATE_H "gateRelay"
 // Use these below when using a PNP transistor to turn an SSR on
 //#define RELAY_PIN D6
 //#define RELAY_ON LOW
@@ -32,9 +32,11 @@ void gateSetup(){
 void openBlastGate(){
   //This gets called in the code when a button is pressed and a message is sent to the other devices to close
   digitalWrite(RELAY_PIN,RELAY_ON);//open the blast gate
+  gGateStatus = GATE_OPEN;
  }
   void closeBlastGate(){  
   digitalWrite(RELAY_PIN,RELAY_OFF);//close the blast gate
+  gGateStatus = GATE_CLOSED;
  }
 
 

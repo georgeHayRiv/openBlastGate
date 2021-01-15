@@ -1,5 +1,5 @@
 //A template to use for a blast gate that gets opened and closed manually and has stop switches to indicate if it is open or closed
-
+#define GATE_H "gateManual.h"
 //TODO add oneButton library.
 //TODO this might be made to work with a single stop switch for just when the gate has been opened,
 
@@ -15,11 +15,11 @@
 // ---------------- include the following functions to be called in the main code ---------------------
 void openBlastGate(){
   //This gets called in the code when a button is pressed or a woodworking machine is turned on.
-  
+  gGateStatus = GATE_OPEN;
  }
   void closeBlastGate(){  
   //This gets called when the gate needs to be closed. It is normally in response to a different gate being opened
-  
+  gGateStatus = GATE_CLOSED;
  }
 
 void gateSetup(){

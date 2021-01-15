@@ -1,5 +1,5 @@
 //When a device does not have a button wired up for it use this .h file. It does nothing other than define the two functions below that do nothing.
-
+#define BUTTON_H "buttonNone.h"
 //----------- any include files -----------
 //#include "OneButton.h"
 //------------any pins defined ----------

@@ -4,6 +4,7 @@
 // The link above has sample software and links discussing using this device with ESP8266 running 3.3V
 // This device returns a differential value between the high and low of the AC current being monitored 
 // unlike the ACS712 that returns a raw value and the difference needs to be calculated.
+#define SENSOR_H "currentSensorModDevice.h"
 
 #define SAMPLES 500   //Number of samples you want to take in total reading once every time through the loop
 #define CHATTER 75    //Analog pin isn't stable so ignore average values below this level

@@ -1,9 +1,9 @@
 // Use this header file when a gate is being opened and closed using a servo.
-
+#define GATE_H "gateServo.h"
 #include "Servo.h"  // include Servo library
 #define SERVO_PIN  D6
-#define OPEN_ANGLE 10 //These angles need to be changed based on the physical setup on the blast gate
-#define CLOSED_ANGLE 135 //
+#define OPEN_ANGLE 135// 10 //These angles need to be changed based on the physical setup on the blast gate
+#define CLOSED_ANGLE 10// 135 //
 Servo gateServo; //initialize a servo object
 const int delayTillOff = 2000; //millis before the servo is turned off. Done to save power and stop jittering of the servo.
 void detachServo();
@@ -15,12 +15,14 @@ void detachServo(){
 void openBlastGate(){
   gateServo.attach(SERVO_PIN);
   gateServo.write(OPEN_ANGLE);
+  gGateStatus  = GATE_OPEN;
    taskDetachServo.setIterations(1);
   taskDetachServo.enableDelayed(delayTillOff);
 }
   void closeBlastGate(){
    gateServo.attach(SERVO_PIN);
   gateServo.write(CLOSED_ANGLE);
+  gGateStatus  = GATE_CLOSED;
   taskDetachServo.setIterations(1);
   taskDetachServo.enableDelayed(delayTillOff);
   

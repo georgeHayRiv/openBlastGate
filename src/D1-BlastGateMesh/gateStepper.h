@@ -6,6 +6,7 @@
 // Two switches would be good, one for open gate and the other for when the gate is closed
 // TODO add a twitch at startup, move the gate a short distance in each direction to show it is working
 // This code is written so steps are made asyncroniously so as to as not to trigger the built in watchdog in the ESP8266
+#define GATE_H "gateStepper.h"
 
 #include "AsyncStepperLib.h"
 #include <Stepper.h>
@@ -42,6 +43,7 @@ void openBlastGate(){
 //  if(digitalRead(openedLimitPin) ){ //check limit switch to see if the gate is already open. If not open it.
     //add code to open the gate
     stepper1.RotateToAngle(360*4,AsyncStepper::CCW);
+    gGateStatus = GATE_OPEN;
 //  }else{ //gate already open
 //  }
  }
@@ -49,6 +51,7 @@ void openBlastGate(){
 //  if(digitalRead(closedLimitPin) ){//check limit switch to see if the gate is already closed. If not close it.
 //    //add code to close the gate
       stepper1.RotateToAngle(360*4,AsyncStepper::CW);
+      gGateStatus = GATE_CLOSED;
 //  }else{// gate already open
 //  }
 }
